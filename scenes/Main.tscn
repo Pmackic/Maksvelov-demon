@@ -1,0 +1,267 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7h4fgc1n5x2a"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_tn8r8"]
+[ext_resource type="Script" path="res://ui/SimulationView.gd" id="2_0m7be"]
+[ext_resource type="Script" path="res://scripts/audio_feedback.gd" id="3_2rt4j"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tn8r8")
+
+[node name="RootMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="RootMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MetricsPanel" type="PanelContainer" parent="RootMargin/MainVBox"]
+layout_mode = 2
+
+[node name="MetricsMargin" type="MarginContainer" parent="RootMargin/MainVBox/MetricsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="MetricsVBox" type="VBoxContainer" parent="RootMargin/MainVBox/MetricsPanel/MetricsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="EntropyBar" type="ProgressBar" parent="RootMargin/MainVBox/MetricsPanel/MetricsMargin/MetricsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+show_percentage = false
+
+[node name="EntropyLabel" type="Label" parent="RootMargin/MainVBox/MetricsPanel/MetricsMargin/MetricsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Shannonova neuređenost gasa"
+autowrap_mode = 3
+
+[node name="ScoreLabel" type="RichTextLabel" parent="RootMargin/MainVBox/MetricsPanel/MetricsMargin/MetricsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="SimulationView" type="Control" parent="RootMargin/MainVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 420)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.7
+script = ExtResource("2_0m7be")
+
+[node name="BottomPanel" type="PanelContainer" parent="RootMargin/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="BottomScroll" type="ScrollContainer" parent="RootMargin/MainVBox/BottomPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="BottomMargin" type="MarginContainer" parent="RootMargin/MainVBox/BottomPanel/BottomScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="BottomVBox" type="VBoxContainer" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="GateButton" type="Button" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 76)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DRŽI KAPIJU OTVORENU"
+
+[node name="ObservablesLabel" type="RichTextLabel" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 76)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+visible = false
+
+[node name="SetupLabel" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Podešavanje demonstracije"
+
+[node name="TopRow" type="HBoxContainer" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="PresetSelect" type="OptionButton" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResetButton" type="Button" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resetuj rundu"
+
+[node name="ToggleRow" type="VBoxContainer" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="AIDemonToggle" type="CheckBox" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ToggleRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Uključi AI demona"
+
+[node name="TheoryNote" type="RichTextLabel" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="ControlsGrid" type="GridContainer" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 6
+
+[node name="AtomCountName" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+layout_mode = 2
+text = "Broj atoma"
+
+[node name="AtomCountSlider" type="HSlider" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 4.0
+max_value = 96.0
+step = 1.0
+size_flags_horizontal = 3
+
+[node name="AtomCountValue" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "25"
+
+[node name="LeftTempName" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Udeo brzih u levoj komori"
+
+[node name="LeftTempSlider" type="HSlider" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+size_flags_horizontal = 3
+
+[node name="LeftTempValue" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.25"
+
+[node name="RightTempName" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Udeo brzih u desnoj komori"
+
+[node name="RightTempSlider" type="HSlider" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+size_flags_horizontal = 3
+
+[node name="RightTempValue" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.75"
+
+[node name="WallCouplingName" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+layout_mode = 2
+text = "Upijanje zida"
+
+[node name="WallCouplingSlider" type="HSlider" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.0
+max_value = 0.4
+step = 0.01
+size_flags_horizontal = 3
+
+[node name="WallCouplingValue" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.00"
+
+[node name="AILookaheadName" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "AI lookahead koraci"
+
+[node name="AILookaheadSlider" type="HSlider" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.0
+max_value = 50.0
+step = 1.0
+size_flags_horizontal = 3
+
+[node name="AILookaheadValue" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox/ControlsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "5"
+
+[node name="HighscoreLabel" type="RichTextLabel" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+visible = false
+
+[node name="StatusLabel" type="Label" parent="RootMargin/MainVBox/BottomPanel/BottomScroll/BottomMargin/BottomVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ručni režim: drži dugme kapije da dozvoliš prolaze."
+autowrap_mode = 3
+visible = false
+
+[node name="AudioFeedback" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_2rt4j")

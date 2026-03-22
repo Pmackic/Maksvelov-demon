@@ -1,0 +1,31 @@
+Maxwell’s Demon je mala fizika-sandbox igra napravljena u Godotu, u kojoj kontrolišeš kapiju između dve komore ispunjene gasom.
+
+Svaka čestica prati jednostavno klasično 2D kretanje i elastične sudare. Tvoj zadatak je da otvaraš i zatvaraš kapiju u pravom trenutku, tako da propuštaš odgovarajuće čestice na odgovarajuću stranu. Ako igraš dobro, topla strana postaje još toplija, hladna još hladnija, a prikazana entropija može vidljivo da opadne.
+
+Ovo nije predstavljeno kao “rušenje drugog zakona termodinamike”, već kao pregledna i interaktivna simulacija koja ostaje naučno poštena.
+
+Šta igra prikazuje
+
+- Klasično kretanje čestica u 2D prostoru
+- Elastične sudare između čestica i zidova
+- Razliku u temperaturi kroz raspodelu brzina
+- Grubozrnasti prikaz entropije u realnom vremenu
+- Opciono praćenje “cene” kontrole demona
+
+Šta radiš u igri
+
+- Ručno upravljaš kapijom između dve komore
+- Propuštaš brže i sporije čestice dobrim tajmingom
+- Pojačavaš temperaturnu razliku između leve i desne strane
+- Juriš bolji rezultat kroz različite preset scenarije
+- Eksperimentišeš sa parametrima i posmatraš posledice svojih odluka
+
+Karakteristike
+
+- 2D simulacija gasa u realnom vremenu
+- Jednostavan i pregledan Maxwell’s Demon gameplay
+- Sandbox režim i više preset varijanti
+- Interfejs prilagođen mobilnim uređajima
+- Edukativni pristup inspirisan Maxwellom, Szilardom i Landauerom
+
+Ako voliš fiziku, interaktivne eksperimente i male sisteme koje možeš da razumeš dok ih igraš, Maxwell’s Demon je napravljen baš za to.

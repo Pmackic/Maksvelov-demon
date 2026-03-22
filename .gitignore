@@ -1,0 +1,7 @@
+.godot/
+
+# Editor and local backup artifacts
+*~
+*.tmp
+*.swp
+*.swo
