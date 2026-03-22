@@ -4,10 +4,7 @@
 #+REVEAL_VERSION: 4
 #+REVEAL_THEME: simple
 #+OPTIONS: num:nil toc:nil
-#+EXPORT_FILE_NAME: pmackic
-#+REVEAL_EMBED_LOCAL_RESOURCES: t
-#+REVEAL_SINGLE_FILE: t
-
+#+EXPORT_FILE_NAME: index
 * Nauke interdisciplinarnosti
 #+begin_quote
 Biblioteka je groblje umova - Božidar Knežević, Misli, 335
